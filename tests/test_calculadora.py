@@ -1,4 +1,4 @@
-from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio
+from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo
 import pytest
 
 def test_sumar_positivos():
@@ -24,3 +24,10 @@ def test_promedio_lista_vacia():
     lista=[]
     with pytest.raises(ValueError):
         promedio(lista)
+
+def test_calcular_area_rectangulo():
+    base = 6
+    altura = 9
+    resultado = calcular_area_rectangulo(base, altura)
+    assert resultado == 54
+    
