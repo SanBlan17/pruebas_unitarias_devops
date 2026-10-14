@@ -15,3 +15,7 @@ def test_hash_contraseña_valida():
 def test_validar_usuario_valido():
     usuario = "Juan_Perez123"
     assert validar_usuario(usuario) == True
+
+def test_validar_usuario_invalido():
+    usuario = "Juan@Perez!"
+    assert validar_usuario(usuario) == False
