@@ -8,7 +8,8 @@ import re
 
 def hash_contraseña(contraseña):
     """Genera un hash SHA-256 de una contraseña."""
-    # BUG 1: No maneja contraseñas vacías o None
+    if not contraseña:
+        raise ValueError("La contraseña no puede estar vacía")
     return hashlib.sha256(contraseña.encode()).hexdigest()
 
 def verificar_contraseña(contraseña, hash_guardado):
