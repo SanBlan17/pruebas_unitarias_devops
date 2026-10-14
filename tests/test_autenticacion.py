@@ -24,3 +24,11 @@ def test_token_generado_difetente():
     token1 = generar_token("juan", 1000)
     token2 = generar_token("juan", 1000)
     assert token1 != token2
+
+def test_token_generado_valido():
+    token = generar_token("juan", 1000)
+    assert len(token) == 32
+
+def test_validat_usuario_vacio():
+    usuario = ""
+    assert validar_usuario(usuario) == False
