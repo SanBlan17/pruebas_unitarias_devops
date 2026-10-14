@@ -1,4 +1,4 @@
-from src.calculadora import sumar, dividir, raiz_cuadrada, minimo
+from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio
 import pytest
 
 def test_sumar_positivos():
@@ -19,3 +19,8 @@ def test_minimo_lista_positiva():
     numeros = [5, 8, 2, 10,4]
     resultado = minimo(numeros)
     assert resultado = 2
+
+def test_promedio_lista_vacia():
+    lista=[]
+    with pytest.raises(ValueError):
+        promedio(lista)
