@@ -45,3 +45,8 @@ def test_verificar_contraseña_correcta():
     contraseña = "contrasena"
     hash_guardado = hash_contraseña(contraseña)
     assert verificar_contraseña(contraseña, hash_guardado) == True
+
+def test_verificar_contraseña_incorrecta():
+    contraseña = "contrasena"
+    hash_guardado = hash_contraseña("contraseña")
+    assert verificar_contraseña(contraseña, hash_guardado) == False
