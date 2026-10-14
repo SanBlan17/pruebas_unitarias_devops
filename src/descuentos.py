@@ -80,11 +80,11 @@ def descuento_cumulativo(precio, descuentos):
     precio_actual = precio
 
     for desc in descuentos:
-        if desc < 0 or desc > 100:
+        if desc < 0 or desc >= 100:
             raise ValueError("Cada descuento debe estar entre 0 y 100")
         precio_actual = aplicar_descuento(precio_actual, desc)
 
-    return precio_actual
+    return round(precio_actual, 2)
 
 def descuento_apilado(precio, descuentos):
     """Aplica múltiples descuentos de forma apilada (sumando porcentajes)."""
@@ -97,5 +97,6 @@ def descuento_apilado(precio, descuentos):
     # Sumar todos los descuentos
     total_descuento = sum(descuentos)
 
-    # BUG 2: El descuento total puede exceder el 100%
+    if total_descuento < 0 or total_descuento > 100:
+            raise ValueError("El descuento debe estar entre 0 y 100")
     return aplicar_descuento(precio, total_descuento)
