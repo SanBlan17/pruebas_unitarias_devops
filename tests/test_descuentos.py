@@ -1,4 +1,4 @@
-from src.descuentos import aplicar_descuento, calcular_precio_final
+from src.descuentos import aplicar_descuento, calcular_precio_final, descuento_apilado
 import pytest
 
 def test_aplicar_descuento_valido():
@@ -13,3 +13,9 @@ def test_calcular_precio_final_valido():
     descuento = 20
     resultado = calcular_precio_final(precio, impuesto, descuento)
     assert resultado == 88
+
+def test_descuento_apilado_valido():
+    precio = 100
+    descuentos = [10, 20, 30]
+    resultado = descuento_apilado(precio, descuentos)
+    assert resultado == 40

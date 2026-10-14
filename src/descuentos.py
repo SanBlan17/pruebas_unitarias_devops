@@ -97,5 +97,6 @@ def descuento_apilado(precio, descuentos):
     # Sumar todos los descuentos
     total_descuento = sum(descuentos)
 
-    # BUG 2: El descuento total puede exceder el 100%
+    if total_descuento < 0 or total_descuento > 100:
+            raise ValueError("El descuento debe estar entre 0 y 100")
     return aplicar_descuento(precio, total_descuento)
