@@ -29,6 +29,10 @@ def test_token_generado_valido():
     token = generar_token("juan", 1000)
     assert len(token) == 32
 
-def test_validat_usuario_vacio():
+def test_validar_usuario_vacio():
     usuario = ""
+    assert validar_usuario(usuario) == False
+
+def test_validar_usuario_corto():
+    usuario = "ab"
     assert validar_usuario(usuario) == False
