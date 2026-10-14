@@ -60,3 +60,9 @@ def test_verificar_contraseña_vacia():
 def test_verificar_contraseña_distingue_mayusculas():
     hash_guardado = hash_contraseña("Clave123")
     assert verificar_contraseña("clave123", hash_guardado) is False
+
+def test_verificar_contraseña_con_espacios():
+    contraseña = " Clave123 "
+    hash_guardado = hash_contraseña(contraseña)
+
+    assert verificar_contraseña(contraseña, hash_guardado) is True
