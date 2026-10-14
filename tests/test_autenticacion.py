@@ -1,4 +1,4 @@
-from src.autenticacion import hash_contraseña, validar_usuario, generar_token
+from src.autenticacion import hash_contraseña, validar_usuario, generar_token, verificar_contraseña
 import pytest
 
 
@@ -40,3 +40,8 @@ def test_validar_usuario_corto():
 def test_validar_usuario_largo():
     usuario = "a" * 21
     assert validar_usuario(usuario) == False
+
+def test_verificar_contraseña_correcta():
+    contraseña = "contrasena"
+    hash_guardado = hash_contraseña(contraseña)
+    assert verificar_contraseña(contraseña, hash_guardado) == True
