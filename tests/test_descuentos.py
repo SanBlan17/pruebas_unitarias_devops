@@ -38,3 +38,8 @@ def test_descuento_por_volumen_valido():
     resultado = descuento_por_volumen(cantidad, precio_unitario)
     assert resultado == 225 
 
+def test_aplicar_descuento_porcentaje_negativo():
+    precio = 100
+    porcentaje = -10
+    with pytest.raises(ValueError):
+        aplicar_descuento(precio, porcentaje)
