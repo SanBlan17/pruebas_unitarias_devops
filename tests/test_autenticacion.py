@@ -36,3 +36,7 @@ def test_validar_usuario_vacio():
 def test_validar_usuario_corto():
     usuario = "ab"
     assert validar_usuario(usuario) == False
+
+def test_validar_usuario_largo():
+    usuario = "a" * 21
+    assert validar_usuario(usuario) == False
