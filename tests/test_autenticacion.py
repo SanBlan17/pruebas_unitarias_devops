@@ -50,3 +50,9 @@ def test_verificar_contraseña_incorrecta():
     contraseña = "contrasena"
     hash_guardado = hash_contraseña("contraseña")
     assert verificar_contraseña(contraseña, hash_guardado) == False
+
+def test_verificar_contraseña_vacia():
+    contraseña = ""
+    hash_guardado = hash_contraseña("contraseña")
+    with pytest.raises(ValueError):
+        verificar_contraseña(contraseña, hash_guardado)
