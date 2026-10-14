@@ -66,3 +66,8 @@ def test_verificar_contraseña_con_espacios():
     hash_guardado = hash_contraseña(contraseña)
 
     assert verificar_contraseña(contraseña, hash_guardado) is True
+
+def test_verificar_contraseña_con_diferentes_espacios():
+    contraseña = " Clave123 "
+    hash_guardado = hash_contraseña("Clave123")
+    assert verificar_contraseña(contraseña, hash_guardado) is False
