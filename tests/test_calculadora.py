@@ -4,7 +4,7 @@ import pytest
 def test_sumar_positivos():
     a, b = 7, 5
     resultado = sumar(a, b)
-    assert rsultado == 12
+    assert resultado == 12
 
 def test_dividir_por_cero_lanza_error():
     with pytest.raises(ValueError):
@@ -16,7 +16,7 @@ def test_raiz_cuadrada_negativo():
         raiz_cuadrada(a)
 
 def test_minimo_lista_positiva():
-    numeros = [5, 8, 2, 10,4]
+    numeros = [5, 8, 2, 10, 4]
     resultado = minimo(numeros)
     assert resultado == 2
 
