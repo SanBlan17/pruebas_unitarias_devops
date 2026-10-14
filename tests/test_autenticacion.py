@@ -1,6 +1,6 @@
-from src.autenticacion import hash_contraseña, validar_usuario
+from src.autenticacion import hash_contraseña, validar_usuario, generar_token
 import pytest
-import hashlib
+
 
 def test_hash_contraseña_vacia():
     contraseña = ""
@@ -19,3 +19,8 @@ def test_validar_usuario_valido():
 def test_validar_usuario_invalido():
     usuario = "Juan@Perez!"
     assert validar_usuario(usuario) == False
+
+def test_token_generado_difetente():
+    token1 = generar_token("juan", 1000)
+    token2 = generar_token("juan", 1000)
+    assert token1 != token2

@@ -5,6 +5,7 @@ ATENCIÓN: Hay 2 bugs ocultos en este archivo.
 
 import hashlib
 import re
+import secrets
 
 def hash_contraseña(contraseña):
     """Genera un hash SHA-256 de una contraseña."""
@@ -35,7 +36,8 @@ def validar_usuario(usuario):
 def generar_token(usuario, timestamp):
     """Genera un token simple basado en usuario y timestamp."""
     # BUG 2: No incluye salt o aleatoriedad, el token es predecible
-    datos = f"{usuario}:{timestamp}"
+    aleatorio = secrets.token_hex(16)
+    datos = f"{usuario}:{timestamp}:{aleatorio}"
     return hashlib.md5(datos.encode()).hexdigest()
 
 def validar_token(token):
