@@ -1,4 +1,4 @@
-from src.descuentos import aplicar_descuento, calcular_precio_final, descuento_apilado, descuento_cumulativo
+from src.descuentos import aplicar_descuento, calcular_precio_final, descuento_apilado, descuento_cumulativo, descuento_por_volumen
 import pytest
 
 def test_aplicar_descuento_valido():
@@ -31,3 +31,10 @@ def test_descuento_cumulativo_valido():
     descuentos = [10, 20, 30]  # Total descuento = 60%
     resultado = descuento_cumulativo(precio, descuentos)
     assert resultado == 50.4
+
+def test_descuento_por_volumen_valido():
+    cantidad = 25
+    precio_unitario = 10
+    resultado = descuento_por_volumen(cantidad, precio_unitario)
+    assert resultado == 225 
+
