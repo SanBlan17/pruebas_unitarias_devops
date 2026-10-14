@@ -18,7 +18,7 @@ def test_raiz_cuadrada_negativo():
 def test_minimo_lista_positiva():
     numeros = [5, 8, 2, 10,4]
     resultado = minimo(numeros)
-    assert resultado = 2
+    assert resultado == 2
 
 def test_promedio_lista_vacia():
     lista=[]
