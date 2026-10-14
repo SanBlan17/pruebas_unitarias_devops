@@ -56,3 +56,7 @@ def test_verificar_contraseña_vacia():
     hash_guardado = hash_contraseña("contraseña")
     with pytest.raises(ValueError):
         verificar_contraseña(contraseña, hash_guardado)
+
+def test_verificar_contraseña_distingue_mayusculas():
+    hash_guardado = hash_contraseña("Clave123")
+    assert verificar_contraseña("clave123", hash_guardado) is False
