@@ -104,3 +104,6 @@ def test_sanear_entrada_menor_que():
 
 def test_sanear_entrada_comilla_simple():
     assert sanear_entrada("O'hara") == "Ohara"
+
+def test_sanear_entrada_dos_guiones():
+    assert sanear_entrada("hola--mundo") == "holamundo"
