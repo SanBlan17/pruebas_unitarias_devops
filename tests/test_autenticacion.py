@@ -95,3 +95,6 @@ def test_verificar_codigo_2fa_incorrecto():
 
 def test_verificar_codigo_2fa_codigo_vacio():
     assert verificar_codigo_2fa("", "123456") is False
+
+def test_verificar_codigo_2fa_espacios():
+    assert verificar_codigo_2fa("123 456", "123 456") is True
