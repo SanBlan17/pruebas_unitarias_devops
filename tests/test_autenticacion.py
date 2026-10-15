@@ -1,4 +1,4 @@
-from src.autenticacion import hash_contraseña, validar_usuario, generar_token
+from src.autenticacion import hash_contraseña, sanear_entrada, validar_usuario, generar_token, verificar_contraseña, validar_token, verificar_codigo_2fa
 import pytest
 
 
@@ -20,7 +20,93 @@ def test_validar_usuario_invalido():
     usuario = "Juan@Perez!"
     assert validar_usuario(usuario) == False
 
-def test_token_generado_difetente():
+def test_token_generado_diferente():
     token1 = generar_token("juan", 1000)
     token2 = generar_token("juan", 1000)
     assert token1 != token2
+
+def test_token_generado_valido():
+    token = generar_token("juan", 1000)
+    assert len(token) == 32
+
+def test_validar_usuario_vacio():
+    usuario = ""
+    assert validar_usuario(usuario) == False
+
+def test_validar_usuario_corto():
+    usuario = "ab"
+    assert validar_usuario(usuario) == False
+
+def test_validar_usuario_largo():
+    usuario = "a" * 21
+    assert validar_usuario(usuario) == False
+
+def test_verificar_contraseña_correcta():
+    contraseña = "contrasena"
+    hash_guardado = hash_contraseña(contraseña)
+    assert verificar_contraseña(contraseña, hash_guardado) == True
+
+def test_verificar_contraseña_incorrecta():
+    contraseña = "contrasena"
+    hash_guardado = hash_contraseña("contraseña")
+    assert verificar_contraseña(contraseña, hash_guardado) == False
+
+def test_verificar_contraseña_vacia():
+    contraseña = ""
+    hash_guardado = hash_contraseña("contraseña")
+    with pytest.raises(ValueError):
+        verificar_contraseña(contraseña, hash_guardado)
+
+def test_verificar_contraseña_distingue_mayusculas():
+    hash_guardado = hash_contraseña("Clave123")
+    assert verificar_contraseña("clave123", hash_guardado) is False
+
+def test_verificar_contraseña_con_espacios():
+    contraseña = " Clave123 "
+    hash_guardado = hash_contraseña(contraseña)
+
+    assert verificar_contraseña(contraseña, hash_guardado) is True
+
+def test_verificar_contraseña_con_diferentes_espacios():
+    contraseña = " Clave123 "
+    hash_guardado = hash_contraseña("Clave123")
+    assert verificar_contraseña(contraseña, hash_guardado) is False
+
+def test_validar_token_numerico():
+    assert validar_token("12345678901234567890123456789012") is True
+
+def test_validar_token_minusculas():
+    assert validar_token("abcdefabcdefabcdefabcdefabcdefab") is True
+
+def test_validar_token_vacio():
+    assert validar_token("") is False
+
+def test_validar_token_corto():
+    assert validar_token("abcdef123456") is False
+
+def test_validar_token_largo():
+    assert validar_token("a" * 33) is False
+
+def test_verificar_codigo_2fa_correcto():
+    assert verificar_codigo_2fa("123456", "123456") is True
+
+def test_verificar_codigo_2fa_incorrecto():
+    assert verificar_codigo_2fa("123456", "654321") is False
+
+def test_verificar_codigo_2fa_codigo_vacio():
+    assert verificar_codigo_2fa("", "123456") is False
+
+def test_verificar_codigo_2fa_espacios():
+    assert verificar_codigo_2fa("123 456", "123 456") is True
+
+def test_sanear_entrada_menor_que():
+    assert sanear_entrada("hola< mundo") == "hola mundo"
+
+def test_sanear_entrada_comilla_simple():
+    assert sanear_entrada("O'hara") == "Ohara"
+
+def test_sanear_entrada_dos_guiones():
+    assert sanear_entrada("hola--mundo") == "holamundo"
+
+def test_sanear_entrada_espacios_exteriores():
+    assert sanear_entrada("   hola mundo   ") == "hola mundo"
