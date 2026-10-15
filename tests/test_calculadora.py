@@ -70,3 +70,8 @@ def test_multiplicacion_con_cero():
     a, b = 7, 0
     resultado = multiplicar(a, b)
     assert resultado == 0
+
+def test_multiplicacion_positivo_negativo():
+    a, b = 4, -3
+    resultado = multiplicar(a, b)
+    assert resultado == -12
