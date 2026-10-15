@@ -100,3 +100,8 @@ def test_potencia_con_string():
     base, exponente = 5, "2"
     with pytest.raises(ValueError):
         potencia(base, exponente)
+
+def test_raiz_cuadrada_cero():
+    numero = 0
+    resultado = raiz_cuadrada(numero)
+    assert resultado == 0
