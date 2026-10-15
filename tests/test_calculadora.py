@@ -115,3 +115,8 @@ def test_promedio_lista_positiva():
     lista = [10, 20, 30, 40]
     resultado = promedio(lista)
     assert resultado == 25
+
+def test_promedio_lista_con_negativos():
+    lista = [10, -20, 30, -40]
+    resultado = promedio(lista)
+    assert resultado == -5
