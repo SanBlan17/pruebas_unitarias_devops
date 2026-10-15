@@ -66,3 +66,7 @@ def test_multiplicacion_negativos():
     resultado = multiplicar(a, b)
     assert resultado == 24
 
+def test_multiplicacion_con_cero():
+    a, b = 7, 0
+    resultado = multiplicar(a, b)
+    assert resultado == 0
