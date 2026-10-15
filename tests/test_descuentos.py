@@ -117,3 +117,9 @@ def test_descuento_cumulativo_con_precio_negativo():
     descuentos = [10, 20]
     with pytest.raises(ValueError):
         descuento_cumulativo(precio, descuentos)
+
+def test_descuento_apilado_sin_descuentos():
+    precio = 100
+    descuentos = []
+    resultado = descuento_apilado(precio, descuentos)
+    assert resultado == 100
