@@ -35,3 +35,8 @@ def test_suma_positivos_negativos():
     a, b = 10, -3
     resultado = sumar(a, b)
     assert resultado == 7
+
+def test_suma_negativos():
+    a, b = -4, -6
+    resultado = sumar(a, b)
+    assert resultado == -10
