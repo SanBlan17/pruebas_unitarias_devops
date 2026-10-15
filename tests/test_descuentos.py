@@ -75,3 +75,9 @@ def test_precio_final_solo_impuesto():
     descuento = 0
     resultado = calcular_precio_final(precio, impuesto, descuento)
     assert resultado == 115
+
+def test_descuento_por_volumen_sin_descuento():
+    cantidad = 5
+    precio_unitario = 10
+    resultado = descuento_por_volumen(cantidad, precio_unitario)
+    assert resultado == 50
