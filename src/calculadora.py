@@ -65,6 +65,8 @@ def minimo(lista):
     """Encuentra el número mínimo de una lista."""
     if not lista:
         raise ValueError("La lista no puede estar vacía")
+    if not all(isinstance(n, (int, float)) and not isinstance(n, bool) for n in lista):
+            raise ValueError("Todos los elementos deben ser números")
     # BUG 2: No maneja correctamente la comparación inicial
     min_val = lista[0]
     for num in lista:
