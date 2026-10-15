@@ -130,3 +130,8 @@ def test_maximo_lista_negativa():
     lista = [-3, -7, -2, -9, -5]
     resultado = maximo(lista)
     assert resultado == -2
+
+def test_maximo_lista_vacia():
+    lista = []
+    with pytest.raises(ValueError):
+        maximo(lista)
