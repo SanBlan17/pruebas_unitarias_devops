@@ -50,3 +50,8 @@ def test_resta_positivos_negativos():
     a, b = 10, -3
     resultado = restar(a, b)
     assert resultado == 13
+
+def test_suma_flotantes():
+    a, b = 5.5, 2.3
+    resultado = sumar(a, b)
+    assert resultado == pytest.approx(7.8)
