@@ -101,3 +101,6 @@ def test_verificar_codigo_2fa_espacios():
 
 def test_sanear_entrada_menor_que():
     assert sanear_entrada("hola< mundo") == "hola mundo"
+
+def test_sanear_entrada_comilla_simple():
+    assert sanear_entrada("O'hara") == "Ohara"
