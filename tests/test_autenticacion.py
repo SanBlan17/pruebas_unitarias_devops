@@ -89,3 +89,6 @@ def test_validar_token_largo():
 
 def test_verificar_codigo_2fa_correcto():
     assert verificar_codigo_2fa("123456", "123456") is True
+
+def test_verificar_codigo_2fa_incorrecto():
+    assert verificar_codigo_2fa("123456", "654321") is False
