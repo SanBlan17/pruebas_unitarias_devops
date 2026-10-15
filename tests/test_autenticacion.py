@@ -107,3 +107,6 @@ def test_sanear_entrada_comilla_simple():
 
 def test_sanear_entrada_dos_guiones():
     assert sanear_entrada("hola--mundo") == "holamundo"
+
+def test_sanear_entrada_espacios_exteriores():
+    assert sanear_entrada("   hola mundo   ") == "hola mundo"
