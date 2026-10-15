@@ -110,3 +110,8 @@ def test_raiz_cuadrada_string():
     numero = "16"
     with pytest.raises(ValueError):
         raiz_cuadrada(numero)
+
+def test_promedio_lista_positiva():
+    lista = [10, 20, 30, 40]
+    resultado = promedio(lista)
+    assert resultado == 25
