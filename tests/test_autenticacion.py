@@ -74,3 +74,7 @@ def test_verificar_contraseña_con_diferentes_espacios():
 
 def test_validar_token_numerico():
     assert validar_token("12345678901234567890123456789012") is True
+
+def test_validar_token_minusculas():
+    assert validar_token("abcdefabcdefabcdefabcdefabcdefab") is True
+
