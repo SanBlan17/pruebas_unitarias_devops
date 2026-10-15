@@ -125,3 +125,8 @@ def test_maximo_lista_positiva():
     lista = [3, 7, 2, 9, 5]
     resultado = maximo(lista)
     assert resultado == 9
+
+def test_maximo_lista_negativa():
+    lista = [-3, -7, -2, -9, -5]
+    resultado = maximo(lista)
+    assert resultado == -2
