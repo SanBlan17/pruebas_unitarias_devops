@@ -60,3 +60,9 @@ def test_multiplicacion_positivos():
     a, b = 4, 5
     resultado = multiplicar(a, b)
     assert resultado == 20
+
+def test_multiplicacion_negativos():
+    a, b = -4, -6
+    resultado = multiplicar(a, b)
+    assert resultado == 24
+
