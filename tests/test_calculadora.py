@@ -1,4 +1,4 @@
-from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar, multiplicar, potencia
+from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar, multiplicar, potencia, maximo
 import pytest
 
 def test_sumar_positivos():
@@ -120,3 +120,8 @@ def test_promedio_lista_con_negativos():
     lista = [10, -20, 30, -40]
     resultado = promedio(lista)
     assert resultado == -5
+
+def test_maximo_lista_positiva():
+    lista = [3, 7, 2, 9, 5]
+    resultado = maximo(lista)
+    assert resultado == 9
