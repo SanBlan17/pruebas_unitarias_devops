@@ -68,3 +68,10 @@ def test_precio_final_sin_descuento_ni_impuesto():
     descuento = 0
     resultado = calcular_precio_final(precio, impuesto, descuento)
     assert resultado == 100
+
+def test_precio_final_solo_impuesto():
+    precio = 100
+    impuesto = 15
+    descuento = 0
+    resultado = calcular_precio_final(precio, impuesto, descuento)
+    assert resultado == 115
