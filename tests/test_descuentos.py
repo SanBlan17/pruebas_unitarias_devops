@@ -61,3 +61,10 @@ def test_descuento_con_decimales():
     porcentaje = 15.5
     resultado = aplicar_descuento(precio, porcentaje)
     assert resultado == pytest.approx(84.49, 0.01)
+
+def test_precio_final_sin_descuento_ni_impuesto():
+    precio = 100
+    impuesto = 0
+    descuento = 0
+    resultado = calcular_precio_final(precio, impuesto, descuento)
+    assert resultado == 100

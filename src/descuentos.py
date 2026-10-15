@@ -14,15 +14,6 @@ def aplicar_descuento(precio, porcentaje):
     descuento = precio * (porcentaje / 100)
     return precio - descuento
 
-def calcular_descuento(precio, porcentaje):
-    """Calcula el monto del descuento."""
-    if precio < 0:
-        raise ValueError("El precio no puede ser negativo")
-
-    if porcentaje < 0 or porcentaje > 100:
-        raise ValueError("El porcentaje debe estar entre 0 y 100")
-
-    return precio * (porcentaje / 100)
 
 def calcular_precio_final(precio, impuesto, descuento):
     """Calcula el precio final con impuesto y descuento."""
