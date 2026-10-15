@@ -53,6 +53,8 @@ def maximo(lista):
     """Encuentra el número máximo de una lista."""
     if not lista:
         raise ValueError("La lista no puede estar vacía")
+    if not all(isinstance(n, (int, float)) and not isinstance(n, bool) for n in lista):
+        raise ValueError("Todos los elementos deben ser números")
     max_val = lista[0]
     for num in lista:
         if num > max_val:

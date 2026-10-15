@@ -135,3 +135,8 @@ def test_maximo_lista_vacia():
     lista = []
     with pytest.raises(ValueError):
         maximo(lista)
+
+def test_maximo_lista_con_string():
+    lista = [3, 7, "2", 9, 5]
+    with pytest.raises(ValueError):
+        maximo(lista)
