@@ -30,4 +30,8 @@ def test_calcular_area_rectangulo():
     altura = 9
     resultado = calcular_area_rectangulo(base, altura)
     assert resultado == 54
-    
+
+def test_suma_positivos_negativos():
+    a, b = 10, -3
+    resultado = sumar(a, b)
+    assert resultado == 7
