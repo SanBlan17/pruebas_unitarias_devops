@@ -83,3 +83,6 @@ def test_validar_token_vacio():
 
 def test_validar_token_corto():
     assert validar_token("abcdef123456") is False
+
+def test_validar_token_largo():
+    assert validar_token("a" * 33) is False
