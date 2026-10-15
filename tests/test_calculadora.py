@@ -1,4 +1,4 @@
-from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar
+from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar, multiplicar
 import pytest
 
 def test_sumar_positivos():
@@ -55,3 +55,8 @@ def test_suma_flotantes():
     a, b = 5.5, 2.3
     resultado = sumar(a, b)
     assert resultado == pytest.approx(7.8)
+
+def test_multiplicacion_positivos():
+    a, b = 4, 5
+    resultado = multiplicar(a, b)
+    assert resultado == 20
