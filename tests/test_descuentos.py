@@ -22,13 +22,13 @@ def test_descuento_apilado_valido():
 
 def test_descuento_cumulativo_descuento_excede_100():
     precio = 100
-    descuentos = [50, 100, 30]  # Total descuento = 110%
+    descuentos = [50, 100, 30]  
     with pytest.raises(ValueError):
         descuento_cumulativo(precio, descuentos)
 
 def test_descuento_cumulativo_valido():
     precio = 100
-    descuentos = [10, 20, 30]  # Total descuento = 60%
+    descuentos = [10, 20, 30]  
     resultado = descuento_cumulativo(precio, descuentos)
     assert resultado == 50.4
 
@@ -105,3 +105,9 @@ def test_descuento_cumulativo_con_descuentos_vacios():
     descuentos = []
     resultado = descuento_cumulativo(precio, descuentos)
     assert resultado == 100
+
+def test_descuento_cumulativo_con_descuentos_negativos():
+    precio = 100
+    descuentos = [-10, -20]
+    with pytest.raises(ValueError):
+        descuento_cumulativo(precio, descuentos)
