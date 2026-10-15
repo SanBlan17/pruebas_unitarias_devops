@@ -80,3 +80,9 @@ def test_division_positivos():
     a, b = 20, 4
     resultado = dividir(a, b)
     assert resultado == 5
+
+def test_division_negativos():
+    a, b = -20, -4
+    resultado = dividir(a, b)
+    assert resultado == 5
+
