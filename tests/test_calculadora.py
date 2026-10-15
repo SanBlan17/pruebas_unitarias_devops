@@ -1,4 +1,4 @@
-from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar, multiplicar
+from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar, multiplicar, potencia
 import pytest
 
 def test_sumar_positivos():
@@ -90,3 +90,8 @@ def test_division_entero_con_flotante():
     a, b = 7, 2.5
     resultado = dividir(a, b)
     assert resultado == 2.8
+
+def test_potencia_exponente_cero():
+    base, exponente = 5, 0
+    resultado = potencia(base, exponente)
+    assert resultado == 1
