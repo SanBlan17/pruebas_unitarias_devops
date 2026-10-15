@@ -81,3 +81,5 @@ def calcular_perimetro_rectangulo(base, altura):
     if base < 0 or altura < 0:
         raise ValueError("La base y altura deben ser positivas")
     return 2 * (base + altura)
+
+

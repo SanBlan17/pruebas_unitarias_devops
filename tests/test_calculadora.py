@@ -75,3 +75,8 @@ def test_multiplicacion_positivo_negativo():
     a, b = 4, -3
     resultado = multiplicar(a, b)
     assert resultado == -12
+
+def test_division_positivos():
+    a, b = 20, 4
+    resultado = dividir(a, b)
+    assert resultado == 5
