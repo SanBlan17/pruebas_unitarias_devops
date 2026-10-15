@@ -27,7 +27,7 @@ def dividir(a, b):
             raise ValueError("No se puede sumar un número con una cadena de texto")
     if b == 0:
         raise ValueError("No se puede dividir por cero")
-    return a / b
+    return round(a / b, 1)
 
 def potencia(base, exponente):
     """Calcula la potencia de un número."""

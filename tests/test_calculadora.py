@@ -86,3 +86,7 @@ def test_division_negativos():
     resultado = dividir(a, b)
     assert resultado == 5
 
+def test_division_entero_con_flotante():
+    a, b = 7, 2.5
+    resultado = dividir(a, b)
+    assert resultado == 2.8
