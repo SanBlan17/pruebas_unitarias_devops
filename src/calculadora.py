@@ -5,6 +5,8 @@ ATENCIÓN: Hay 2 bugs ocultos en este archivo.
 
 def sumar(a, b):
     """Suma dos números."""
+    if isinstance(a, str) or isinstance(b, str):
+        raise ValueError("No se puede sumar un número con una cadena de texto")
     return a + b
 
 def restar(a, b):

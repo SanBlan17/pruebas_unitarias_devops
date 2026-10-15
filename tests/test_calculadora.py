@@ -1,4 +1,4 @@
-from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo
+from src.calculadora import sumar, dividir, raiz_cuadrada, minimo, promedio, calcular_area_rectangulo, restar
 import pytest
 
 def test_sumar_positivos():
@@ -40,3 +40,8 @@ def test_suma_negativos():
     a, b = -4, -6
     resultado = sumar(a, b)
     assert resultado == -10
+
+def test_suma_string():
+    a, b = 9, "Mundo"
+    with pytest.raises(ValueError):
+        sumar(a, b)
