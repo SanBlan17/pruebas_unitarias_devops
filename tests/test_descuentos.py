@@ -81,3 +81,9 @@ def test_descuento_por_volumen_sin_descuento():
     precio_unitario = 10
     resultado = descuento_por_volumen(cantidad, precio_unitario)
     assert resultado == 50
+
+def test_descuento_por_volumen_con_cantidad_cero():
+    cantidad = 0
+    precio_unitario = 10
+    resultado = descuento_por_volumen(cantidad, precio_unitario)
+    assert resultado == 0
