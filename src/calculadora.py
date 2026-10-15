@@ -11,24 +11,34 @@ def sumar(a, b):
 
 def restar(a, b):
     """Resta dos números."""
+    if isinstance(a, str) or isinstance(b, str):
+            raise ValueError("No se puede sumar un número con una cadena de texto")
     return a - b
 
 def multiplicar(a, b):
     """Multiplica dos números."""
+    if isinstance(a, str) or isinstance(b, str):
+            raise ValueError("No se puede sumar un número con una cadena de texto")
     return a * b
 
 def dividir(a, b):
     """Divide dos números."""
+    if isinstance(a, str) or isinstance(b, str):
+            raise ValueError("No se puede sumar un número con una cadena de texto")
     if b == 0:
         raise ValueError("No se puede dividir por cero")
     return a / b
 
 def potencia(base, exponente):
     """Calcula la potencia de un número."""
+    if isinstance(base, str) or isinstance(exponente, str):
+            raise ValueError("No se puede sumar un número con una cadena de texto")
     return base ** exponente
 
 def raiz_cuadrada(numero):
     """Calcula la raíz cuadrada de un número."""
+    if isinstance(numero, str):
+        raise ValueError("No se puede hallar raiz, ya que es un numero negativo")
     if numero < 0:
         raise ValueError("No se puede hallar raiz, ya que es un numero negativo")
     return numero ** 0.5

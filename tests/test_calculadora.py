@@ -45,3 +45,8 @@ def test_suma_string():
     a, b = 9, "Mundo"
     with pytest.raises(ValueError):
         sumar(a, b)
+
+def test_resta_positivos_negativos():
+    a, b = 10, -3
+    resultado = restar(a, b)
+    assert resultado == 13
