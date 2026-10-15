@@ -146,3 +146,7 @@ def test_minimo_lista_negativa():
     resultado = minimo(lista)
     assert resultado == -9
 
+def test_minimo_lista_vacia():
+    lista = []
+    with pytest.raises(ValueError):
+        minimo(lista)
