@@ -77,6 +77,9 @@ def test_validar_token_numerico():
 
 def test_validar_token_minusculas():
     assert validar_token("abcdefabcdefabcdefabcdefabcdefab") is True
-    
+
 def test_validar_token_vacio():
     assert validar_token("") is False
+
+def test_validar_token_corto():
+    assert validar_token("abcdef123456") is False
