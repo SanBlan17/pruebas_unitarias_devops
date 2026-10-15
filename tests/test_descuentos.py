@@ -43,3 +43,6 @@ def test_aplicar_descuento_porcentaje_negativo():
     porcentaje = -10
     with pytest.raises(ValueError):
         aplicar_descuento(precio, porcentaje)
+
+def test_descuento_del_100_por_ciento():
+    assert aplicar_descuento(200, 100) == 0
