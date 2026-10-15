@@ -87,3 +87,9 @@ def test_descuento_por_volumen_con_cantidad_cero():
     precio_unitario = 10
     resultado = descuento_por_volumen(cantidad, precio_unitario)
     assert resultado == 0
+
+def test_descuento_por_volumen_con_cantidad_negativa():
+    cantidad = -5
+    precio_unitario = 10
+    with pytest.raises(ValueError):
+        descuento_por_volumen(cantidad, precio_unitario)
