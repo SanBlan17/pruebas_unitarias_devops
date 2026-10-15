@@ -1,4 +1,4 @@
-from src.autenticacion import hash_contraseña, validar_usuario, generar_token, verificar_contraseña, validar_token, verificar_codigo_2fa
+from src.autenticacion import hash_contraseña, sanear_entrada, validar_usuario, generar_token, verificar_contraseña, validar_token, verificar_codigo_2fa
 import pytest
 
 
@@ -98,3 +98,6 @@ def test_verificar_codigo_2fa_codigo_vacio():
 
 def test_verificar_codigo_2fa_espacios():
     assert verificar_codigo_2fa("123 456", "123 456") is True
+
+def test_sanear_entrada_menor_que():
+    assert sanear_entrada("hola< mundo") == "hola mundo"
