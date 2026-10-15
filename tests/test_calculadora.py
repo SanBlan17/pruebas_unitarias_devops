@@ -105,3 +105,8 @@ def test_raiz_cuadrada_cero():
     numero = 0
     resultado = raiz_cuadrada(numero)
     assert resultado == 0
+
+def test_raiz_cuadrada_string():
+    numero = "16"
+    with pytest.raises(ValueError):
+        raiz_cuadrada(numero)
