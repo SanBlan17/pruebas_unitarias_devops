@@ -1,4 +1,4 @@
-from src.autenticacion import hash_contraseña, validar_usuario, generar_token, verificar_contraseña, validar_token
+from src.autenticacion import hash_contraseña, validar_usuario, generar_token, verificar_contraseña, validar_token, verificar_codigo_2fa
 import pytest
 
 
@@ -86,3 +86,6 @@ def test_validar_token_corto():
 
 def test_validar_token_largo():
     assert validar_token("a" * 33) is False
+
+def test_verificar_codigo_2fa_correcto():
+    assert verificar_codigo_2fa("123456", "123456") is True
