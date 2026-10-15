@@ -95,3 +95,8 @@ def test_potencia_exponente_cero():
     base, exponente = 5, 0
     resultado = potencia(base, exponente)
     assert resultado == 1
+
+def test_potencia_con_string():
+    base, exponente = 5, "2"
+    with pytest.raises(ValueError):
+        potencia(base, exponente)
